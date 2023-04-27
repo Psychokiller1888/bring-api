@@ -7996,7 +7996,7 @@ var app = (function () {
     }
     return (async function () {
         const e = document.getElementById("app"),
-            t = `${e.getAttribute("data-root") || ""}/fyta-api/insomnia.json`;
+            t = `${e.getAttribute("data-root") || ""}/bring-api/insomnia.json`;
         window.INSOMNIA_URL = t;
         try {
             const n = await fetch(t, { method: "GET", credentials: "same-origin", headers: { Accept: "application/json", "Content-Type": "application/json" } }).then((e) => e.json()),
