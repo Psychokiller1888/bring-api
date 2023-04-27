@@ -1,0 +1,42 @@
+_id: req_64743cf7abf84517a43f7af565fce9a1
+type: Request
+parentId: fld_583cd92418084f00b950831fed0ad0db
+modified: 1682593443169
+created: 1682583606981
+url: https://api.getbring.com/rest/v2/bringauth
+name: Auth
+description: ""
+method: POST
+body:
+  mimeType: application/x-www-form-urlencoded
+  params:
+    - id: pair_041fc0d7bd0d49579816307661ae1ce7
+      name: email
+      value: "{{ _.email }}"
+      description: ""
+    - id: pair_da71fd35eab24748b44ea990871abdc5
+      name: password
+      value: "{{ _.password }}"
+      description: ""
+parameters: []
+headers:
+  - id: pair_de40dcc409b54527a3c42986c026e18c
+    name: x-bring-api-key
+    value: "{{ _.apiKey }}"
+    description: ""
+  - id: pair_954daeb73d5d44c2bcdcec3dcadc2b48
+    name: x-bring-client
+    value: "{{ _.client }}"
+    description: ""
+  - name: Content-Type
+    value: application/x-www-form-urlencoded
+    id: pair_a0265d3110d54fed9e40013f84145946
+authentication: {}
+metaSortKey: -1472394184377.125
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

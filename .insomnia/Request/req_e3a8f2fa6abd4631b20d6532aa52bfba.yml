@@ -1,0 +1,35 @@
+_id: req_e3a8f2fa6abd4631b20d6532aa52bfba
+type: Request
+parentId: fld_456ad99e571d488e9f06fe293b5ff7df
+modified: 1682593651150
+created: 1682583934001
+url: https://api.getbring.com/rest/v2/bringusers/profiles/{% response 'body',
+  'req_64743cf7abf84517a43f7af565fce9a1', 'b64::JC5wdWJsaWNVdWlk::46b',
+  'no-history', 60 %}
+name: User profile
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - id: pair_de40dcc409b54527a3c42986c026e18c
+    name: x-bring-api-key
+    value: "{{ _.apiKey }}"
+    description: ""
+  - id: pair_954daeb73d5d44c2bcdcec3dcadc2b48
+    name: x-bring-client
+    value: "{{ _.client }}"
+    description: ""
+authentication:
+  type: bearer
+  token: "{% response 'body', 'req_64743cf7abf84517a43f7af565fce9a1',
+    'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
+  prefix: Bearer
+metaSortKey: -1682593597460.125
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

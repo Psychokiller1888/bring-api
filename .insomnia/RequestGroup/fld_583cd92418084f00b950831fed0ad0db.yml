@@ -1,0 +1,10 @@
+_id: fld_583cd92418084f00b950831fed0ad0db
+type: RequestGroup
+parentId: wrk_5d50619fdd7044bab7b4e7e4bcc4c3b7
+modified: 1682593503683
+created: 1682593353631
+name: Bring auth
+description: ""
+environment: {}
+environmentPropertyOrder: null
+metaSortKey: 0
