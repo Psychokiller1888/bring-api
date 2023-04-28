@@ -1,19 +1,11 @@
-from dataclasses import dataclass, field
-from typing import Optional
+from typing import Optional, Union
 
 import requests
+from requests import Response
 
-class RequestFailed(Exception):
-	def __init__(self, message: Optional[str] = None):
-		super().__init__(message)
+from BringPythonApi.Exceptions import InvalidUser, InvalidEmail, RequestFailed, InvalidCredentials
+from BringPythonApi.User import User
 
-class InvalidEmail(Exception):
-	def __init__(self, message: Optional[str] = None):
-		super().__init__(message)
-
-class InvalidUser(Exception):
-	def __init__(self, message: Optional[str] = None):
-		super().__init__(message)
 
 class Bring(object):
 
@@ -46,12 +38,12 @@ class Bring(object):
 				headers=self._headers
 			)
 			if req.status_code != 200:
-				raise RequestFailed('URL not found')
+				raise RequestFailed()
 			data = req.json()
 			if not data['emailValid']:
-				raise InvalidEmail('Invalid email')
+				raise InvalidEmail()
 			elif not data['userExists']:
-				raise InvalidUser('Invalid user')
+				raise InvalidUser()
 			else:
 				return True
 		except:
@@ -68,7 +60,7 @@ class Bring(object):
 				}
 			)
 			if req.status_code != 200:
-				raise RequestFailed('Email or password invalid')
+				raise InvalidCredentials()
 			data = req.json()
 			self._user = User(**data)
 			self._headers['Authorization'] = f'{self._user.token_type} {self._user.access_token}'
@@ -106,32 +98,65 @@ class Bring(object):
 				raise RequestFailed('Failed getting user data')
 			data = req.json()
 			self._user.premiumConfiguration = data['premiumConfiguration']
-			print(self._user)
 			return True
 		except:
 			raise
 
 
-@dataclass
-class User(object):
-	uuid: str
-	publicUuid: str
-	email: str
-	name: str
-	photoPath: str
-	bringListUUID: str
-	access_token: str
-	refresh_token: str
-	token_type: str
-	expires_in: int
-	pushEnabled: Optional[bool] = False
-	plusTryOut: Optional[bool] = False
-	country: Optional[str] = ''
-	language: Optional[str] = 'en'
-	premiumConfiguration: Optional[dict] = field(default_factory=dict)
+	def purchase(self, item: str, detail: Union[str, int]) -> Response:
+		return requests.put(
+			url=f'{self.API_URL}/bringlists/{self._user.bringListUUID}',
+			headers=self._headers,
+			data={
+				'uuid': self._user.bringListUUID,
+				'purchase': item,
+				'specification': detail
+			}
+		)
+
+
+	def remove(self, item: str, detail: Union[str, int]) -> Response:
+		return requests.put(
+			url=f'{self.API_URL}/bringlists/{self._user.bringListUUID}',
+			headers=self._headers,
+			data={
+				'uuid': self._user.bringListUUID,
+				'remove': item,
+				'specification': detail
+			}
+		)
+
+
+	def addToRecentItems(self, item: str, detail: Union[str, int]) -> Response:
+		return requests.put(
+			url=f'{self.API_URL}/bringlists/{self._user.bringListUUID}',
+			headers=self._headers,
+			data={
+				'uuid': self._user.bringListUUID,
+				'recently': item,
+				'specification': detail
+			}
+		)
+
+
+	def emptyPurchaseList(self):
+		req = self.getShoppingList()
+		if req.status_code != 200:
+			raise RequestFailed
+
+		for item in req.json()['purchase']:
+			self.remove(item=item['name'], detail=item['specification'])
+
+
+	def getShoppingList(self) -> Response:
+		return requests.get(
+			url=f'{self.API_URL}/bringlists/{self._user.bringListUUID}',
+			headers=self._headers
+		)
 
 if __name__ == '__main__':
 	try:
-		bring = Bring(email='laurentchervet@bluewin.ch', password='')
+		bring = Bring(email='laurentchervet@bluewin.ch', password='SOqMil')
+		bring.emptyPurchaseList()
 	except Exception as e:
 		print(f'Failed login: {e}')
