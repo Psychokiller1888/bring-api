@@ -156,7 +156,7 @@ class Bring(object):
 
 if __name__ == '__main__':
 	try:
-		bring = Bring(email='laurentchervet@bluewin.ch', password='SOqMil')
+		bring = Bring(email='', password='')
 		bring.emptyPurchaseList()
 	except Exception as e:
 		print(f'Failed login: {e}')
