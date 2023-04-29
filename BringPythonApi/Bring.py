@@ -17,12 +17,12 @@ class Bring(object):
 		self._password = password
 		self._user: Optional[User] = None
 		self._headers = {
+			'Content-Type': 'application/x-www-form-urlencoded',
 			'x-bring-api-key': self.API_KEY,
 			'x-bring-client': 'webApp'
 		}
 		try:
 			self.checkEmail(self._email)
-			self._headers['Content-Type'] = 'application/x-www-form-urlencoded'
 			self.login()
 			self.getUserProfile()
 			self.getUserData()
@@ -157,6 +157,5 @@ class Bring(object):
 if __name__ == '__main__':
 	try:
 		bring = Bring(email='', password='')
-		bring.emptyPurchaseList()
 	except Exception as e:
 		print(f'Failed login: {e}')
