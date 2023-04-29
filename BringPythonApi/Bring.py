@@ -2,6 +2,7 @@ from typing import Optional, Union, List, Dict
 
 import requests
 from requests import Response
+from urllib3 import encode_multipart_formdata
 
 from BringPythonApi.Exceptions import InvalidUser, InvalidEmail, RequestFailed, InvalidCredentials
 from BringPythonApi.Item import Item
@@ -19,7 +20,7 @@ class Bring(object):
 		self._user: Optional[User] = None
 		self._userItems: List = list()
 		self._headers = {
-			'Content-Type':    'application/x-www-form-urlencoded; charset=UTF-8',
+			'content-type':    'application/x-www-form-urlencoded; charset=UTF-8',
 			'x-bring-api-key': self.API_KEY,
 			'x-bring-client':  'webApp'
 		}
@@ -73,6 +74,7 @@ class Bring(object):
 			data = req.json()
 			self._user = User(**data)
 			self._headers['Authorization'] = f'{self._user.token_type} {self._user.access_token}'
+			self._headers['cookie'] = f'refresh_token={self._user.refresh_token}'
 			return True
 		except:
 			raise
@@ -334,14 +336,18 @@ class Bring(object):
 
 	def getItemDetails(self, itemId: str) -> Response:
 		headers = self._headers.copy()
-		headers['Content-Type'] = 'multipart/form-data'
-		headers['Content-Disposition'] = 'form-data'
+		headers['content-type'] = 'multipart/form-data'
+		payload = {
+			'itemId': itemId,
+			'listUuid': self._user.bringListUUID
+		}
+
 		return requests.post(
 			url=f'{self.API_URL}/bringlistitemdetails',
 			headers=headers,
 			files={
 				'itemId': itemId,
-				'listUuid': self._user.bringListUUID
+				'listUuid': self.user.bringListUUID
 			}
 		)
 
