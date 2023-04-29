@@ -1,15 +1,21 @@
-_id: req_74fbccbc1e7d46f0bce986acd8b9d713
+_id: req_184100d073e34efdb1df5f345c486944
 type: Request
-parentId: fld_69305682a1794b59abb86bc43b1d168f
-modified: 1682759937577
-created: 1682585167337
-url: https://api.getbring.com/rest/v2/bringlists/{% response 'body',
-  'req_c681ecb773ee45b3afad203691a96944',
-  'b64::JC5saXN0c1s6MV0ubGlzdFV1aWQ=::46b', 'no-history', 60 %}
-name: Get list
+parentId: fld_456ad99e571d488e9f06fe293b5ff7df
+modified: 1682762157737
+created: 1682761747442
+url: https://api.getbring.com/rest/v2/bringusers/{% response 'body',
+  'req_64743cf7abf84517a43f7af565fce9a1', 'b64::JC51dWlk::46b', 'no-history', 60
+  %}/password
+name: Change password
 description: ""
-method: GET
-body: {}
+method: POST
+body:
+  mimeType: application/x-www-form-urlencoded
+  params:
+    - id: pair_52e943c2a8ec49e3a78525360294ad13
+      name: password
+      value: my_new_password
+      description: ""
 parameters: []
 headers:
   - id: pair_de40dcc409b54527a3c42986c026e18c
@@ -30,12 +36,14 @@ headers:
     value: "{% response 'body', 'req_64743cf7abf84517a43f7af565fce9a1',
       'b64::JC51dWlk::46b', 'no-history', 60 %}"
     description: ""
+  - name: Content-Type
+    value: application/x-www-form-urlencoded
 authentication:
   type: bearer
   token: "{% response 'body', 'req_64743cf7abf84517a43f7af565fce9a1',
     'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
   prefix: Bearer
-metaSortKey: -1682593480963
+metaSortKey: -1682593599261.3125
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

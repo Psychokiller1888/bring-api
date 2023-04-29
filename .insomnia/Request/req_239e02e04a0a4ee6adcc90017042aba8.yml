@@ -1,12 +1,12 @@
 _id: req_239e02e04a0a4ee6adcc90017042aba8
 type: Request
-parentId: fld_456ad99e571d488e9f06fe293b5ff7df
-modified: 1682682498101
+parentId: fld_069d40f17a48453e8bb537e443109ebe
+modified: 1682761339871
 created: 1682682293119
 url: https://api.getbring.com/rest/v2/bringusersettings/{% response 'body',
   'req_64743cf7abf84517a43f7af565fce9a1', 'b64::JC51dWlk::46b', 'no-history', 60
   %}
-name: User settings
+name: Get user settings
 description: ""
 method: GET
 body: {}
@@ -35,7 +35,7 @@ authentication:
   token: "{% response 'body', 'req_64743cf7abf84517a43f7af565fce9a1',
     'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
   prefix: Bearer
-metaSortKey: -1682593562938.5312
+metaSortKey: -1682719416203.2812
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

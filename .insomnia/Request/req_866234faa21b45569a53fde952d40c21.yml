@@ -1,15 +1,23 @@
-_id: req_74fbccbc1e7d46f0bce986acd8b9d713
+_id: req_866234faa21b45569a53fde952d40c21
 type: Request
-parentId: fld_69305682a1794b59abb86bc43b1d168f
-modified: 1682759937577
-created: 1682585167337
-url: https://api.getbring.com/rest/v2/bringlists/{% response 'body',
-  'req_c681ecb773ee45b3afad203691a96944',
-  'b64::JC5saXN0c1s6MV0ubGlzdFV1aWQ=::46b', 'no-history', 60 %}
-name: Get list
+parentId: fld_069d40f17a48453e8bb537e443109ebe
+modified: 1682761495513
+created: 1682761331714
+url: https://api.getbring.com/rest/v2/bringusersettings/{% response 'body',
+  'req_64743cf7abf84517a43f7af565fce9a1', 'b64::JC51dWlk::46b', 'no-history', 60
+  %}/{% response 'body', 'req_c681ecb773ee45b3afad203691a96944',
+  'b64::JC5saXN0c1s6MV0ubGlzdFV1aWQ=::46b', 'no-history', 60
+  %}/listArticleLanguage
+name: Set list language
 description: ""
-method: GET
-body: {}
+method: POST
+body:
+  mimeType: application/x-www-form-urlencoded
+  params:
+    - id: pair_a4f26b043bce4c83b5f2e190983afb3c
+      name: value
+      value: en-US
+      description: ""
 parameters: []
 headers:
   - id: pair_de40dcc409b54527a3c42986c026e18c
@@ -30,12 +38,14 @@ headers:
     value: "{% response 'body', 'req_64743cf7abf84517a43f7af565fce9a1',
       'b64::JC51dWlk::46b', 'no-history', 60 %}"
     description: ""
+  - name: Content-Type
+    value: application/x-www-form-urlencoded
 authentication:
   type: bearer
   token: "{% response 'body', 'req_64743cf7abf84517a43f7af565fce9a1',
     'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
   prefix: Bearer
-metaSortKey: -1682593480963
+metaSortKey: -1682656626263.7031
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
