@@ -1,0 +1,10 @@
+_id: fld_bf6d8769c7c94441af163e9cd80221c6
+type: RequestGroup
+parentId: wrk_5d50619fdd7044bab7b4e7e4bcc4c3b7
+modified: 1682762554514
+created: 1682762554514
+name: Bring list item details
+description: ""
+environment: {}
+environmentPropertyOrder: null
+metaSortKey: -1682593792080

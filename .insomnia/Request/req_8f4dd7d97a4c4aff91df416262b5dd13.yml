@@ -1,0 +1,53 @@
+_id: req_8f4dd7d97a4c4aff91df416262b5dd13
+type: Request
+parentId: fld_bf6d8769c7c94441af163e9cd80221c6
+modified: 1682764718012
+created: 1682762860541
+url: https://api.getbring.com/rest/v2/bringlistitemdetails/{% response 'body',
+  'req_e587a829b1024ec88fcb3d535109fcb4', 'b64::JC5bOV0udXVpZA==::46b',
+  'no-history', 60 %}/usersection
+name: Change item category
+description: ""
+method: PUT
+body:
+  mimeType: application/x-www-form-urlencoded
+  params:
+    - id: pair_a98a9c69190746239685a55c665a1698
+      name: userSectionId
+      value: Eigene Artikel
+      description: ""
+parameters: []
+headers:
+  - id: pair_de40dcc409b54527a3c42986c026e18c
+    name: x-bring-api-key
+    value: "{{ _.apiKey }}"
+    description: ""
+  - id: pair_954daeb73d5d44c2bcdcec3dcadc2b48
+    name: x-bring-client
+    value: "{{ _.client }}"
+    description: ""
+  - id: pair_00843e3779564cd9b3a5ac17d64c5451
+    name: x-bring-country
+    value: "{% response 'body', 'req_e3a8f2fa6abd4631b20d6532aa52bfba',
+      'b64::JC5jb3VudHJ5::46b', 'no-history', 60 %}"
+    description: ""
+  - id: pair_ad4b2134c1034200853641849dd47cad
+    name: x-bring-user-uuid
+    value: "{% response 'body', 'req_64743cf7abf84517a43f7af565fce9a1',
+      'b64::JC51dWlk::46b', 'no-history', 60 %}"
+    description: ""
+  - name: Content-Type
+    value: application/x-www-form-urlencoded
+authentication:
+  type: bearer
+  token: "{% response 'body', 'req_64743cf7abf84517a43f7af565fce9a1',
+    'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
+  prefix: Bearer
+metaSortKey: -1682593774696.8125
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
