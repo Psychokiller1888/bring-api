@@ -12,6 +12,7 @@ from BringPythonApi.User import User
 class Bring(object):
 	API_URL: str = 'https://api.getbring.com/rest/v2'
 	API_KEY: str = 'cof4Nc6D8saplXjE3h3HXqHH8m7VU2i1Gs0g85Sp'
+	BOUNDARY: str = '----------BRING-PYTHON-API--'
 
 	def __init__(self, email: str, password: str):
 		self._translations = dict()
@@ -336,15 +337,29 @@ class Bring(object):
 
 	def getItemDetails(self, itemId: str) -> Response:
 		headers = self._headers.copy()
-		headers['content-type'] = 'multipart/form-data'
 
-		return requests.post(
+		payload = {
+			'itemId': itemId,
+			'listUuid': self.user.bringListUUID
+		}
+
+		payload, contentType = encode_multipart_formdata(payload, boundary=self.BOUNDARY)
+		headers['Content-Type'] = contentType
+
+		print(headers)
+
+		# payload = f'{self.BOUNDARY}\n'
+		# for item, value in content.items():
+		# 	payload += f'Content-Disposition: form-data; name="{item}";\n\n'
+		# 	payload += f'{value}\n'
+		# 	payload += f'{self.BOUNDARY}\n'
+
+
+		return requests.request(
+			method='POST',
 			url=f'{self.API_URL}/bringlistitemdetails',
-			headers=headers,
-			files={
-				'itemId': itemId,
-				'listUuid': self.user.bringListUUID
-			}
+			data=payload,
+			headers=headers
 		)
 
 
@@ -388,4 +403,5 @@ if __name__ == '__main__':
 		bring = Bring(email='', password='')
 	except Exception as e:
 		print(f'Failed login: {e}')
+
 
