@@ -337,10 +337,6 @@ class Bring(object):
 	def getItemDetails(self, itemId: str) -> Response:
 		headers = self._headers.copy()
 		headers['content-type'] = 'multipart/form-data'
-		payload = {
-			'itemId': itemId,
-			'listUuid': self._user.bringListUUID
-		}
 
 		return requests.post(
 			url=f'{self.API_URL}/bringlistitemdetails',
@@ -348,6 +344,27 @@ class Bring(object):
 			files={
 				'itemId': itemId,
 				'listUuid': self.user.bringListUUID
+			}
+		)
+
+
+	def sendMagicLink(self, email: Optional[str] = '') -> Response:
+		if not email and not self._user:
+			raise RequestFailed('Cannot request magic link without user or email')
+
+		if not email:
+			email = self._user.email
+
+		headers = self._headers.copy()
+		headers.pop('x-bring-country', None)
+		headers.pop('x-bring-user-uuid', None)
+		headers.pop('x-bring-api-key', None)
+
+		return requests.post(
+			url=f'{self.API_URL}/bringauth/magiclink',
+			headers=headers,
+			data={
+				'email': email
 			}
 		)
 
