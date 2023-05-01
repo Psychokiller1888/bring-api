@@ -1,13 +1,37 @@
 _id: req_e587a829b1024ec88fcb3d535109fcb4
 type: Request
 parentId: fld_69305682a1794b59abb86bc43b1d168f
-modified: 1682593493565
+modified: 1682926887115
 created: 1682585738184
 url: https://api.getbring.com/rest/v2/bringlists/{% response 'body',
   'req_c681ecb773ee45b3afad203691a96944',
   'b64::JC5saXN0c1s6MV0ubGlzdFV1aWQ=::46b', 'no-history', 60 %}/details
 name: Get list details
-description: ""
+description: |-
+  Get categories details
+
+  <!-- RESPONSE -->
+  [
+  	{
+  		"uuid": "018104ef",
+  		"itemId": "milk",
+  		"listUuid": "15413babc9b",
+  		"userIconItemId": "Milch",
+  		"userSectionId": "Eigene Artikel",
+  		"assignedTo": "",
+  		"imageUrl": ""
+  	},
+  	{
+  		"uuid": "1eb20fcee7e0ad",
+  		"itemId": "Water",
+  		"listUuid": "15413b509b",
+  		"userIconItemId": "Mineralwasser",
+  		"userSectionId": "Getränke & Tabak",
+  		"assignedTo": "",
+  		"imageUrl": ""
+  	}
+  ]
+  <!-- ENDRESPONSE -->
 method: GET
 body: {}
 parameters: []

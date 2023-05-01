@@ -1,7 +1,7 @@
 _id: req_866234faa21b45569a53fde952d40c21
 type: Request
 parentId: fld_069d40f17a48453e8bb537e443109ebe
-modified: 1682761495513
+modified: 1682927489721
 created: 1682761331714
 url: https://api.getbring.com/rest/v2/bringusersettings/{% response 'body',
   'req_64743cf7abf84517a43f7af565fce9a1', 'b64::JC51dWlk::46b', 'no-history', 60
@@ -9,7 +9,12 @@ url: https://api.getbring.com/rest/v2/bringusersettings/{% response 'body',
   'b64::JC5saXN0c1s6MV0ubGlzdFV1aWQ=::46b', 'no-history', 60
   %}/listArticleLanguage
 name: Set list language
-description: ""
+description: |-
+  Changes your DISPLAY language
+
+  <!-- RESPONSE -->
+  Status code `200`
+  <!-- ENDRESPONSE -->
 method: POST
 body:
   mimeType: application/x-www-form-urlencoded

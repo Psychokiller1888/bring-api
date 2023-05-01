@@ -1,13 +1,18 @@
 _id: req_184100d073e34efdb1df5f345c486944
 type: Request
 parentId: fld_456ad99e571d488e9f06fe293b5ff7df
-modified: 1682762157737
+modified: 1682927121921
 created: 1682761747442
 url: https://api.getbring.com/rest/v2/bringusers/{% response 'body',
   'req_64743cf7abf84517a43f7af565fce9a1', 'b64::JC51dWlk::46b', 'no-history', 60
   %}/password
 name: Change password
-description: ""
+description: |-
+  Changes your password
+
+  <!-- RESPONSE -->
+  Status code `200`
+  <!-- ENDRESPONSE -->
 method: POST
 body:
   mimeType: application/x-www-form-urlencoded

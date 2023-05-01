@@ -1,13 +1,37 @@
 _id: req_76720f7686a442e5925c9f6f26bf30f8
 type: Request
 parentId: fld_456ad99e571d488e9f06fe293b5ff7df
-modified: 1682593619246
+modified: 1682927080295
 created: 1682584814640
 url: https://api.getbring.com/rest/v2/bringusers/{% response 'body',
   'req_64743cf7abf84517a43f7af565fce9a1', 'b64::JC51dWlk::46b', 'no-history', 60
   %}
 name: User data
-description: ""
+description: |-
+  Retrieves user data
+
+  <!-- RESPONSE -->
+  {
+  	"userUuid": "5331e09b25",
+  	"publicUserUuid": "31d325aa",
+  	"email": "foo@bar.ch",
+  	"emailVerified": true,
+  	"name": "Psycho",
+  	"photoPath": "bring/user/portrait/9b7f1c2bd6",
+  	"userLocale": {
+  		"language": "en",
+  		"country": "CH"
+  	},
+  	"premiumConfiguration": {
+  		"hasPremium": false,
+  		"hideSponsoredProducts": false,
+  		"hideSponsoredTemplates": false,
+  		"hideSponsoredPosts": false,
+  		"hideSponsoredCategories": false,
+  		"hideOffersOnMain": false
+  	}
+  }
+  <!-- ENDRESPONSE -->
 method: GET
 body: {}
 parameters: []

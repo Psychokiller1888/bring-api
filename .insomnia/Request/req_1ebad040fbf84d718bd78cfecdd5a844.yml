@@ -1,13 +1,31 @@
 _id: req_1ebad040fbf84d718bd78cfecdd5a844
 type: Request
 parentId: fld_69305682a1794b59abb86bc43b1d168f
-modified: 1682593556071
+modified: 1682927020239
 created: 1682585705782
 url: https://api.getbring.com/rest/v2/bringlists/{% response 'body',
   'req_c681ecb773ee45b3afad203691a96944',
   'b64::JC5saXN0c1s6MV0ubGlzdFV1aWQ=::46b', 'no-history', 60 %}/users
 name: Get list users
-description: ""
+description: |-
+  Gets the assigned users to a specific list
+
+  <!-- RESPONSE -->
+  {
+  	"users": [
+  		{
+  			"publicUuid": "31d32015aa",
+  			"name": "Psycho",
+  			"email": "foo@bar.ch",
+  			"photoPath": "bring\/user\/portrait\/9b7fbd6",
+  			"pushEnabled": true,
+  			"plusTryOut": false,
+  			"country": "CH",
+  			"language": "en"
+  		}
+  	]
+  }
+  <!-- ENDRESPONSE -->
 method: GET
 body: {}
 parameters: []

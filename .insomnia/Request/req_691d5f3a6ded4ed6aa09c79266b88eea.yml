@@ -1,13 +1,20 @@
 _id: req_691d5f3a6ded4ed6aa09c79266b88eea
 type: Request
 parentId: fld_456ad99e571d488e9f06fe293b5ff7df
-modified: 1682593632365
+modified: 1682927267450
 created: 1682585875301
 url: https://api.getbring.com/rest/v2/bringusers/{% response 'body',
   'req_64743cf7abf84517a43f7af565fce9a1', 'b64::JC51dWlk::46b', 'no-history', 60
   %}/invitations?status=pending
 name: Get pending invites
-description: ""
+description: |-
+  Gets your share pending invites
+
+  <!-- RESPONSE -->
+  {
+  	"invitations": []
+  }
+  <!-- ENDRESPONSE -->
 method: GET
 body: {}
 parameters: []

@@ -1,11 +1,19 @@
 _id: req_35df961f45634c1e9e20bd8e428561a9
 type: Request
 parentId: fld_583cd92418084f00b950831fed0ad0db
-modified: 1682593451437
+modified: 1682926689366
 created: 1682583294649
 url: https://api.getbring.com/rest/v2/bringauth/checkemail?email={{ _.email }}
 name: Check email
-description: ""
+description: |-
+  Checks if the provided email is valid and a user exists with it
+
+  <!-- RESPONSE -->
+  {
+  	"emailValid": true,
+  	"userExists": true
+  }
+  <!-- ENDRESPONSE -->
 method: GET
 body: {}
 parameters: []

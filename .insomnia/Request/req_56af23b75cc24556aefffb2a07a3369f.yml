@@ -1,13 +1,18 @@
 _id: req_56af23b75cc24556aefffb2a07a3369f
 type: Request
 parentId: fld_456ad99e571d488e9f06fe293b5ff7df
-modified: 1682593627543
+modified: 1682927308229
 created: 1682585010417
 url: https://api.getbring.com/rest/v2/bringusers/profilepictures/{% response
   'body', 'req_e3a8f2fa6abd4631b20d6532aa52bfba', 'b64::JC5wdWJsaWNVdWlk::46b',
   'no-history', 60 %}
 name: User profile picture
-description: ""
+description: |-
+  Gets your profile picture
+
+  <!-- RESPONSE -->
+  Jpeg data
+  <!-- ENDRESPONSE -->
 method: GET
 body: {}
 parameters: []

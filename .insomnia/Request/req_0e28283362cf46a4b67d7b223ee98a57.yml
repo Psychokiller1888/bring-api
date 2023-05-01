@@ -1,20 +1,28 @@
-_id: req_355cd98760434a5499c0af1253c52f36
+_id: req_0e28283362cf46a4b67d7b223ee98a57
 type: Request
 parentId: fld_583cd92418084f00b950831fed0ad0db
-modified: 1682926583585
-created: 1682582858777
-url: https://api.getbring.com/rest/v2/bringauth/recaptcha
-name: Recaptcha
-description: |-
-  Sends a Recaptcha query, its use is unknown
+modified: 1682926633106
+created: 1682925584384
+url: https://api.getbring.com/rest/v2/bringauth/magiclink
+name: Magic link
+description: >-
+  If you don't login with a password, on a web page, you can ask for a magic
+  link to be sent
+
 
   <!-- RESPONSE -->
-  {
-  	"valid": true
-  }
+
+  Status code `200`
+
   <!-- ENDRESPONSE -->
 method: POST
-body: {}
+body:
+  mimeType: application/x-www-form-urlencoded
+  params:
+    - id: pair_3cd42b53372346138359fdfac1114054
+      name: email
+      value: "{{ _.email }}"
+      description: ""
 parameters: []
 headers:
   - id: pair_de40dcc409b54527a3c42986c026e18c
@@ -25,8 +33,10 @@ headers:
     name: x-bring-client
     value: "{{ _.client }}"
     description: ""
+  - name: Content-Type
+    value: application/x-www-form-urlencoded
 authentication: {}
-metaSortKey: -1472394184427.125
+metaSortKey: -1472394184414.625
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

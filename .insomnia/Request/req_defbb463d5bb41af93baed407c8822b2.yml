@@ -1,14 +1,26 @@
 _id: req_defbb463d5bb41af93baed407c8822b2
 type: Request
 parentId: wrk_5d50619fdd7044bab7b4e7e4bcc4c3b7
-modified: 1682593503683
+modified: 1682927541860
 created: 1682585311300
 url: https://web.getbring.com/locale/articles.{% response 'body',
   'req_5add296d8b734557b5a7cf202e612b94',
   'b64::JC51c2VybGlzdHNldHRpbmdzWzoxXS51c2Vyc2V0dGluZ3NbMV0udmFsdWU=::46b',
   'no-history', 60 %}.json
 name: Get articles translations
-description: ""
+description: |-
+  Returns translated item ids
+
+  <!-- RESPONSE -->
+  {
+  	"Passionsfrucht": "Passion fruit",
+  	"Getreideriegel": "Cereal bar",
+  	"Glasreiniger": "Glass cleaner",
+  	"Gartenwerkzeug": "Garden tool",
+  	"Putenbrust": "Turkey breast",
+  	"Müesli": "Muesli"
+  }
+  <!-- ENDRESPONSE -->
 method: GET
 body: {}
 parameters: []

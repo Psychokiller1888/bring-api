@@ -1,13 +1,24 @@
 _id: req_3e2947ab165046118ac97a4f21527a65
 type: Request
 parentId: fld_9325f94e9c3d41a29f5427b99ff0ee28
-modified: 1682595425704
+modified: 1682925848287
 created: 1682593918887
 url: https://api.getbring.com/rest/v2/bringstatistics/history/list/{% response
   'body', 'req_c681ecb773ee45b3afad203691a96944',
-  'b64::JC5saXN0c1s6MV0ubGlzdFV1aWQ=::46b', 'no-history', 60 %}/Brot
+  'b64::JC5saXN0c1s6MV0ubGlzdFV1aWQ=::46b', 'no-history', 60 %}/savon
 name: Item history
-description: ""
+description: |-
+  Get the purchase history of a given item
+
+  <!-- RESPONSE -->
+  {
+  	"listUuid": "15413b50-5f62-4abb-b699-6fa899aabc9b",
+  	"itemId": "savon",
+  	"action": "PURCHASE",
+  	"publicUserUuid": "31d32863-59f6-42c0-923d-7e7185e015aa",
+  	"dateTimeUtc": "2023-04-29T09:54:02.542Z"
+  }
+  <!-- ENDRESPONSE -->
 method: GET
 body: {}
 parameters: []

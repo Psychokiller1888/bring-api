@@ -1,13 +1,18 @@
 _id: req_2c22a56801ad4041871cf222f69a393f
 type: Request
 parentId: fld_bf6d8769c7c94441af163e9cd80221c6
-modified: 1682766971409
+modified: 1682926450981
 created: 1682766951434
 url: https://api.getbring.com/rest/v2/bringlistitemdetails/{% response 'body',
   'req_e587a829b1024ec88fcb3d535109fcb4', 'b64::JC5bOV0udXVpZA==::46b',
   'no-history', 60 %}/usericon
 name: Change item icon
-description: ""
+description: |-
+  Change an item' icon by another existing one
+
+  <!-- RESPONSE -->
+  On success `204` status code is returned
+  <!-- ENDRESPONSE -->
 method: PUT
 body:
   mimeType: application/x-www-form-urlencoded

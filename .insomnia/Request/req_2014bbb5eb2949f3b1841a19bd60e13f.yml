@@ -1,11 +1,24 @@
 _id: req_2014bbb5eb2949f3b1841a19bd60e13f
 type: Request
 parentId: fld_bf6d8769c7c94441af163e9cd80221c6
-modified: 1682768006937
+modified: 1682925925060
 created: 1682762554516
 url: https://api.getbring.com/rest/v2/bringlistitemdetails
 name: Item details
-description: ""
+description: |-
+  Get an item' details
+
+  <!-- RESPONSE -->
+  {
+  	"uuid": "29287d40-ade1-4dd3-ad1d-8f4cf9a6c676",
+  	"itemId": "Aufschnit",
+  	"listUuid": "15413b50-5f62-4abb-b699",
+  	"userIconItemId": "",
+  	"userSectionId": "",
+  	"assignedTo": "",
+  	"imageUrl": ""
+  }
+  <!-- ENDRESPONSE -->
 method: POST
 body:
   mimeType: multipart/form-data

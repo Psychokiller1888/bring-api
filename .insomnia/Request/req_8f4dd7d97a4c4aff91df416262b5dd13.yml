@@ -1,13 +1,42 @@
 _id: req_8f4dd7d97a4c4aff91df416262b5dd13
 type: Request
 parentId: fld_bf6d8769c7c94441af163e9cd80221c6
-modified: 1682764718012
+modified: 1682926429461
 created: 1682762860541
 url: https://api.getbring.com/rest/v2/bringlistitemdetails/{% response 'body',
   'req_e587a829b1024ec88fcb3d535109fcb4', 'b64::JC5bOV0udXVpZA==::46b',
   'no-history', 60 %}/usersection
 name: Change item category
-description: ""
+description: >-
+  Move an item into a different category.
+
+
+  ```
+
+  WARNING
+
+  Be very carefull not to send an item in an unexisting category, or you'll break your app!!!
+
+  ```
+
+
+  One way to find the available category names is to GET User settings, your categories will be listed in your user settings.
+
+
+  ```
+
+  GOOD TO KNOW
+
+  Your custom category is called "Eigene Artikel"
+
+  ```
+
+
+  <!-- RESPONSE -->
+
+  On success `204` status code is returned
+
+  <!-- ENDRESPONSE -->
 method: PUT
 body:
   mimeType: application/x-www-form-urlencoded

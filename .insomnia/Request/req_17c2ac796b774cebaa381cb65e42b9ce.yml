@@ -1,11 +1,144 @@
 _id: req_17c2ac796b774cebaa381cb65e42b9ce
 type: Request
 parentId: fld_67b54f238c3c47839cef18cab68e682a
-modified: 1682593718812
+modified: 1682926271699
 created: 1682585786868
 url: https://api.getbring.com/rest/v2/bringads
 name: Get ads
-description: ""
+description: >-
+  Get ads from the app based on your history
+
+
+  <!-- RESPONSE -->
+
+  {
+  	"ads": [
+  		{
+  			"identification": "2254",
+  			"campaign": "Savencia SP Fol Epi Coop Aktion KW 14-39 2023 CH",
+  			"activeFrom": "2023-05-01",
+  			"activeTo": "2023-05-08",
+  			"countries": [],
+  			"key": "Fol Epi",
+  			"section": "Milch & Käse",
+  			"name": {
+  				"default": "Fol Epi",
+  				"fr": "Fol Epi",
+  				"it": "Fol Epi",
+  				"de": "Fol Epi"
+  			},
+  			"specification": {},
+  			"icon": "",
+  			"adFlavour": true,
+  			"adIndicator": {
+  				"de": "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfv",
+  				"default": "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAA",
+  				"it": "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAAu0lE",
+  				"fr": "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKf"
+  			},
+  			"position": 2,
+  			"keywords": {
+  				"de": [
+  					"Fol Epi"
+  				],
+  				"fr": [
+  					"Fol Epi"
+  				],
+  				"it": [
+  					"Fol Epi"
+  				],
+  				"default": [
+  					"Fol Epi"
+  				]
+  			},
+  			"keywordThreshold": 3,
+  			"keywordMatchType": "STARTS_WITH",
+  			"itemLinking": {
+  				"itemIds": [
+  					"Brot",
+  					"Butter",
+  					"Käse",
+  					"Salat"
+  				],
+  				"threshold": 2,
+  				"distance": 0
+  			},
+  			"engagementAction": {
+  				"img": {
+  					"de": "https://cdn.bringapi.app/content/savencia/bringad_folepi_coop_750x600px_kw18_d115c7a9150324a8b8b2905c82fb294fa.jpg",
+  					"default": "https://cdn.bringapi.app/content/savencia/bringad_folepi_coop_750x600px_kw18_d115c7a9150324a8b8b2905c82fb294fa.jpg",
+  					"it": "https://cdn.bringapi.app/content/savencia/bringad_folepi_coop_750x600px_kw18_i0a91d6fb452f4a7db624d2cc5037d83a.jpg",
+  					"fr": "https://cdn.bringapi.app/content/savencia/bringad_folepi_coop_750x600px_kw18_fd48327e3707c4d4fadcbcce3b4d335f0.jpg"
+  				},
+  				"title": {
+  					"de": "AKTION FOL EPI COOP: Classic 462g",
+  					"default": "AKTION FOL EPI COOP: Classic 462g",
+  					"it": "AKTION FOL EPI COOP: Classic 462g",
+  					"fr": "AKTION FOL EPI COOP: Classic 462g"
+  				},
+  				"text": {
+  					"de": "Fol Epi, das sind feine, zarte Scheiben, basierend auf einem über 100-jährigen Know-how. Ob in der Classic oder Caractère Version, lassen Sie sich von seinem einzigartigen, fruchtigen Geschmack überraschen. \n\nFol Epi verleiht Ihren Picknicks, Sandwiches oder auch Käseplatten einen Hauch von Finesse!",
+  					"default": "Fol Epi, das sind feine, zarte Scheiben, basierend auf einem über 100-jährigen Know-how. Ob in der Classic oder Caractère Version, lassen Sie sich von seinem einzigartigen, fruchtigen Geschmack überraschen. \n\nFol Epi verleiht Ihren Picknicks, Sandwiches oder auch Käseplatten einen Hauch von Finesse!",
+  					"it": "Fol Epi, sottili fette cremose, frutto di oltre 100 anni di esperienza. Che scegliate la versione Classic o Caractère, lasciatevi sorprendere dal gusto fruttato unico nel suo genere. \n\nFol Epi dà un tocco di raffinatezza ai vostri picnic, ai vostri sandwich e non da ultimo ai vostri taglieri di formaggi!",
+  					"fr": "Fol Epi, ce sont de fines tranches moelleuses, issues d'un savoir-faire de plus de 100 ans. Que ce soit en version Classic ou Caractère, laissez-vous surprendre par son goût fruité unique. \n\nFol Epi apporte une touche de finesse à vos pique-niques, sandwichs ou encore vos plateaux de fromage!"
+  				},
+  				"action": {
+  					"de": "Jetzt probieren",
+  					"default": "Jetzt probieren",
+  					"it": "Per saperne di più",
+  					"fr": "En savoir plus"
+  				},
+  				"link": {
+  					"de": "https://jaime-le-fromage.ch/marken-produkte/fol-epi/",
+  					"default": "https://jaime-le-fromage.ch/marken-produkte/fol-epi/",
+  					"it": "https://jaime-le-fromage.ch/fr/marques-produits/fol-epi/",
+  					"fr": "https://jaime-le-fromage.ch/fr/marques-produits/fol-epi/"
+  				},
+  				"adIndicator": {
+  					"de": "iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAAA3ElEQVR4Ae3MIW7DQBhE4XFQbpZIrXKSAi9rj5DQXKWXaFBhWDfFQSFmfiWVJWuk/VfyglbyGzLoEx09mSV90dOJnhYlkZtAWTTqP0Ijn3wwLoUGnhHiiWEJNLBHv9uXKcVMHaWIqaUUMNWUAqaaUsBUUwqYl+ntENN3SkXmyG367xxLlIoMM4gSpRmzmzMGwckog0YOxjg0pw6MDl3QtBM4BE5xcejqjENGXR2CVzZsOUMIwZktG97AIYA7D6iC4MEdDLJiCPjD0Aqt0K0J9C1SEyiJjkReBGUS3Q8+lBF5BKT5GwAAAABJRU5ErkJggg==",
+  					"default": "iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAAA3ElEQVR4Ae3MIW7DQBhE4XFQbpZIrXKSAi9rj5DQXKWXaFBhWDfFQSFmfiWVJWuk/VfyglbyGzLoEx09mSV90dOJnhYlkZtAWTTqP0Ijn3wwLoUGnhHiiWEJNLBHv9uXKcVMHaWIqaUUMNWUAqaaUsBUUwqYl+ntENN3SkXmyG367xxLlIoMM4gSpRmzmzMGwckog0YOxjg0pw6MDl3QtBM4BE5xcejqjENGXR2CVzZsOUMIwZktG97AIYA7D6iC4MEdDLJiCPjD0Aqt0K0J9C1SEyiJjkReBGUS3Q8+lBF5BKT5GwAAAABJRU5ErkJggg==",
+  					"it": "iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAAA3ElEQVR4Ae3MIW7DQBhE4XFQbpZIrXKSAi9rj5DQXKWXaFBhWDfFQSFmfiWVJWuk/VfyglbyGzLoEx09mSV90dOJnhYlkZtAWTTqP0Ijn3wwLoUGnhHiiWEJNLBHv9uXKcVMHaWIqaUUMNWUAqaaUsBUUwqYl+ntENN3SkXmyG367xxLlIoMM4gSpRmzmzMGwckog0YOxjg0pw6MDl3QtBM4BE5xcejqjENGXR2CVzZsOUMIwZktG97AIYA7D6iC4MEdDLJiCPjD0Aqt0K0J9C1SEyiJjkReBGUS3Q8+lBF5BKT5GwAAAABJRU5ErkJggg==",
+  					"fr": "iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAAA3ElEQVR4Ae3MIW7DQBhE4XFQbpZIrXKSAi9rj5DQXKWXaFBhWDfFQSFmfiWVJWuk/VfyglbyGzLoEx09mSV90dOJnhYlkZtAWTTqP0Ijn3wwLoUGnhHiiWEJNLBHv9uXKcVMHaWIqaUUMNWUAqaaUsBUUwqYl+ntENN3SkXmyG367xxLlIoMM4gSpRmzmzMGwckog0YOxjg0pw6MDl3QtBM4BE5xcejqjENGXR2CVzZsOUMIwZktG97AIYA7D6iC4MEdDLJiCPjD0Aqt0K0J9C1SEyiJjkReBGUS3Q8+lBF5BKT5GwAAAABJRU5ErkJggg=="
+  				}
+  			},
+  			"forcedEngagement": true,
+  			"forcedEngagementRepeatedly": false,
+  			"productFlavours": {
+  				"flavours": [
+  					{
+  						"packshotImg": {
+  							"de": "https://cdn.bringapi.app/content/savencia/productflavours/FolEpi_Classic_200x200pxb444b573b8474b6bbe0b8877e30bbc6d.png",
+  							"default": "https://cdn.bringapi.app/content/savencia/productflavours/FolEpi_Classic_200x200pxb444b573b8474b6bbe0b8877e30bbc6d.png",
+  							"it": "https://cdn.bringapi.app/content/savencia/productflavours/FolEpi_Classic_200x200px5027969bd68444a8b7b391e9dca812b0.png",
+  							"fr": "https://cdn.bringapi.app/content/savencia/productflavours/FolEpi_Classic_200x200px18c41565791e4c0a825e604ed0922ba4.png"
+  						},
+  						"specification": {
+  							"de": "Classic",
+  							"default": "Classic",
+  							"it": "Classic",
+  							"fr": "Classic"
+  						},
+  						"engagementAction": {
+  							"img": {},
+  							"title": {},
+  							"text": {},
+  							"action": {},
+  							"link": {},
+  							"adIndicator": {
+  								"de": "iVBORw0KGgoAAAANSUhEUgAAAEAAAAAwCAQAAAALQrSUAAADDElEQVR42u2YS0iUURTHr2ZKYQ8FF1bQSwJxIxQ9sE0gBT1ACjQIe7lQoqIHSLUphYgoGqgposJcRGSRUlBBoLipxEVgOBC2KawMygcpYub4azFnjne++UaqmfEz6HyLuef87/3fPzNzzr3fMUaMAnwEGCTZNkgAHwXGNtLxE2QqLYif9Intm/",
+  								"default": "iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAAA3ElEQVR4A",
+  								"it": "iVBORw0KGgoAAAANSUhEUgAAAEAAAAAwCAQAAAALQrSUAAADDElEQVR42u2YS0iUURTHr2ZKYQ8FF1bQSwJxIxQ9sE0gBT1ACjQIe7lQoqIHSLUphYgoGqgposJcRGSRUlBBoLipxEVgOBC2KawMygcpYub4azFnjne++UaqmfEz6HyLuef87/3fPzNzzr3fMUaMAnwEGCTZNkgAHwXGNtLxE2QqLYif9Intm/HCmkUCfrwyf+i3D3omIEiBwYeX5jMEPBUQMFOQeJMmpcFj+wcEjFNHGRV0umAfOMR2LjLqgjVQyn7a4hfgl3KVQ58D+UGeYEeiVj0WJIOueAVs1YJd50CaFJnNUMxV1+MVsE+pdjuQSus0eeooMHMVuROvgEtKtdyB5FkCjkcgHRbyLl4BbyyyHvsPGHGeFkasuabxJYlIw1yle2",
+  								"fr": "iVBORw0KGgoAAAANSUhEUgAAAEAAAAAwCAQAAAALQrSUAAADDElEQVR42u2YS0iUURTHr2ZKYQ8FF1bQSwJxIxQ9sE0gBT1ACjQIe7lQoqIHSLUphYgoGqgposJcRGSRUlBBoLipxEVgOBC2KawMygcpYub4azFnjne++UaqmfEz6HyLuef87/3fPzNzzr3fMUaMAnwEGCTZNkgAHwXGNtLxE2QqLYif9Intm/HCmkUCf"
+  							}
+  						}
+  					}
+  				]
+  			}
+  		},...
+  	]
+  }
+
+  <!-- ENDRESPONSE -->
 method: GET
 body: {}
 parameters: []

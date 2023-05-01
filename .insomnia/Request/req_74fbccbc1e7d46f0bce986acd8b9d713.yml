@@ -1,13 +1,73 @@
 _id: req_74fbccbc1e7d46f0bce986acd8b9d713
 type: Request
 parentId: fld_69305682a1794b59abb86bc43b1d168f
-modified: 1682759937577
+modified: 1682926951416
 created: 1682585167337
 url: https://api.getbring.com/rest/v2/bringlists/{% response 'body',
   'req_c681ecb773ee45b3afad203691a96944',
   'b64::JC5saXN0c1s6MV0ubGlzdFV1aWQ=::46b', 'no-history', 60 %}
 name: Get list
-description: ""
+description: |-
+  Gets your untranslated purchase and recent lists
+
+  <!-- RESPONSE -->
+  {
+  	"uuid": "15413b50-5f62-4abb-b699-6fa899aabc9b",
+  	"status": "REGISTERED",
+  	"purchase": [
+  		{
+  			"specification": "",
+  			"name": "savon"
+  		}
+  	],
+  	"recently": [
+  		{
+  			"specification": "",
+  			"name": "Joghurt"
+  		},
+  		{
+  			"specification": "",
+  			"name": "Fruchtsaft"
+  		},
+  		{
+  			"specification": "",
+  			"name": "Schokolade"
+  		},
+  		{
+  			"specification": "",
+  			"name": "Brot geschnitten"
+  		},
+  		{
+  			"specification": "",
+  			"name": "Apple"
+  		},
+  		{
+  			"specification": "",
+  			"name": "bread egg"
+  		},
+  		{
+  			"specification": "",
+  			"name": "dog bread"
+  		},
+  		{
+  			"specification": "",
+  			"name": "Erdnussbutter"
+  		},
+  		{
+  			"specification": "",
+  			"name": "chips"
+  		},
+  		{
+  			"specification": "",
+  			"name": "Aprikosen"
+  		},
+  		{
+  			"specification": "",
+  			"name": "Milch"
+  		}
+  	]
+  }
+  <!-- ENDRESPONSE -->
 method: GET
 body: {}
 parameters: []

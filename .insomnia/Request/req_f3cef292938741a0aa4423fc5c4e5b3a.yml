@@ -1,14 +1,121 @@
 _id: req_f3cef292938741a0aa4423fc5c4e5b3a
 type: Request
 parentId: wrk_5d50619fdd7044bab7b4e7e4bcc4c3b7
-modified: 1682593503683
+modified: 1682927661263
 created: 1682585607756
 url: https://web.getbring.com/locale/catalog.{% response 'body',
   'req_5add296d8b734557b5a7cf202e612b94',
   'b64::JC51c2VybGlzdHNldHRpbmdzWzoxXS51c2Vyc2V0dGluZ3NbMV0udmFsdWU=::46b',
   'no-history', 60 %}.json
 name: Get catalog translations
-description: ""
+description: |-
+  Returns translated articles and category names
+
+  <!-- RESPONSE -->
+  {
+  	"language": "en-US",
+  	"catalog": {
+  		"sections": [
+  			{
+  				"sectionId": "Fertig- & Tiefkühlprodukte",
+  				"name": "Frozen & Convenience",
+  				"items": [
+  					{
+  						"itemId": "Baked Beans",
+  						"name": "Baked Beans"
+  					}
+  				]
+  			},
+  			{
+  				"sectionId": "Getreideprodukte",
+  				"name": "Grain Products",
+  				"items": [
+  					{
+  						"itemId": "Basmatireis",
+  						"name": "Basmati rice"
+  					}
+  				]
+  			},
+  			{
+  				"sectionId": "Snacks & Süsswaren",
+  				"name": "Snacks & Sweets",
+  				"items": [
+  					{
+  						"itemId": "Brezeln",
+  						"name": "Pretzels"
+  					}
+  				]
+  			},
+  			{
+  				"sectionId": "Getränke & Tabak",
+  				"name": "Beverages",
+  				"items": [
+  					{
+  						"itemId": "Apfelsaft",
+  						"name": "Apple juice"
+  					},
+  					{
+  						"itemId": "Bier",
+  						"name": "Beer"
+  					}
+  				]
+  			},
+  			{
+  				"sectionId": "Haushalt & Gesundheit",
+  				"name": "Household",
+  				"items": [
+  					{
+  						"itemId": "Abfallsäcke",
+  						"name": "Garbage bags"
+  					},
+  					{
+  						"itemId": "Abwaschmittel",
+  						"name": "Dishwashing liquid"
+  					}
+  				]
+  			},
+  			{
+  				"sectionId": "Pflege & Gesundheit",
+  				"name": "Care & Health",
+  				"items": [
+  					{
+  						"itemId": "Binden",
+  						"name": "Pads"
+  					},
+  					{
+  						"itemId": "Bodylotion",
+  						"name": "Body lotion"
+  					}
+  				]
+  			},
+  			{
+  				"sectionId": "Tierbedarf",
+  				"name": "Pet Supplies",
+  				"items": [
+  					{
+  						"itemId": "Fischfutter",
+  						"name": "Fish food"
+  					},
+  					{
+  						"itemId": "Hundefutter",
+  						"name": "Dog food"
+  					}
+  				]
+  			},
+  			{
+  				"sectionId": "Baumarkt & Garten",
+  				"name": "Home & Garden",
+  				"items": [
+  					{
+  						"itemId": "Blumenerde",
+  						"name": "Potting soil"
+  					}
+  				]
+  			}
+  		]
+  	}
+  }
+  <!-- ENDRESPONSE -->
 method: GET
 body: {}
 parameters: []

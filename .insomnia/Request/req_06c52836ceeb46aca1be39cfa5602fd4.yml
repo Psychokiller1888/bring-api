@@ -1,13 +1,20 @@
 _id: req_06c52836ceeb46aca1be39cfa5602fd4
 type: Request
 parentId: fld_456ad99e571d488e9f06fe293b5ff7df
-modified: 1682682262554
+modified: 1682927344078
 created: 1682682239154
 url: https://api.getbring.com/rest/v2/bringusers/{% response 'body',
   'req_e3a8f2fa6abd4631b20d6532aa52bfba', 'b64::JC5wdWJsaWNVdWlk::46b',
   'no-history', 60 %}/features
 name: User features
-description: ""
+description: |-
+  Gets enabled features on your account
+
+  <!-- RESPONSE -->
+  {
+  	"features": []
+  }
+  <!-- ENDRESPONSE -->
 method: GET
 body: {}
 parameters: []

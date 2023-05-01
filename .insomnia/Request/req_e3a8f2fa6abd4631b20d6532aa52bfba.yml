@@ -1,13 +1,27 @@
 _id: req_e3a8f2fa6abd4631b20d6532aa52bfba
 type: Request
 parentId: fld_456ad99e571d488e9f06fe293b5ff7df
-modified: 1682593651150
+modified: 1682927174815
 created: 1682583934001
 url: https://api.getbring.com/rest/v2/bringusers/profiles/{% response 'body',
   'req_64743cf7abf84517a43f7af565fce9a1', 'b64::JC5wdWJsaWNVdWlk::46b',
   'no-history', 60 %}
 name: User profile
-description: ""
+description: |-
+  Returns your user public profile
+
+  <!-- RESPONSE -->
+  {
+  	"publicUuid": "31d35aa",
+  	"name": "Psycho",
+  	"email": "foo@bar.ch",
+  	"photoPath": "bring\/user\/portrait\/9b7f1cd2bd6",
+  	"pushEnabled": false,
+  	"plusTryOut": false,
+  	"country": "CH",
+  	"language": "en"
+  }
+  <!-- ENDRESPONSE -->
 method: GET
 body: {}
 parameters: []

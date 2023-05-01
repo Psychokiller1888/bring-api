@@ -1,13 +1,26 @@
 _id: req_c681ecb773ee45b3afad203691a96944
 type: Request
 parentId: fld_456ad99e571d488e9f06fe293b5ff7df
-modified: 1682593624309
+modified: 1682927228001
 created: 1682584909741
 url: https://api.getbring.com/rest/v2/bringusers/{% response 'body',
   'req_64743cf7abf84517a43f7af565fce9a1', 'b64::JC51dWlk::46b', 'no-history', 60
   %}/lists
 name: User lists
-description: ""
+description: |-
+  Gets your own shopping lists
+
+  <!-- RESPONSE -->
+  {
+  	"lists": [
+  		{
+  			"listUuid": "15413bbc9b",
+  			"name": "Maison",
+  			"theme": "ch.publisheria.bring.theme.home"
+  		}
+  	]
+  }
+  <!-- ENDRESPONSE -->
 method: GET
 body: {}
 parameters: []

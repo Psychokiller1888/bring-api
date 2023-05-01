@@ -1,11 +1,27 @@
 _id: req_64743cf7abf84517a43f7af565fce9a1
 type: Request
 parentId: fld_583cd92418084f00b950831fed0ad0db
-modified: 1682593443169
+modified: 1682926788001
 created: 1682583606981
 url: https://api.getbring.com/rest/v2/bringauth
 name: Auth
-description: ""
+description: |-
+  Send a login request in order to get your auth token
+
+  <!-- RESPONSE -->
+  {
+  	"uuid": "5331ea7",
+  	"publicUuid": "31d32863",
+  	"email": "foo@bar.ch",
+  	"name": "Psycho",
+  	"photoPath": "bring\/user\/portrait\/9b7f1c4",
+  	"bringListUUID": "15413b5",
+  	"access_token": "XXXX",
+  	"refresh_token": "XXXX",
+  	"token_type": "Bearer",
+  	"expires_in": 604799
+  }
+  <!-- ENDRESPONSE -->
 method: POST
 body:
   mimeType: application/x-www-form-urlencoded

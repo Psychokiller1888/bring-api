@@ -1,13 +1,59 @@
 _id: req_239e02e04a0a4ee6adcc90017042aba8
 type: Request
 parentId: fld_069d40f17a48453e8bb537e443109ebe
-modified: 1682761339871
+modified: 1682927438490
 created: 1682682293119
 url: https://api.getbring.com/rest/v2/bringusersettings/{% response 'body',
   'req_64743cf7abf84517a43f7af565fce9a1', 'b64::JC51dWlk::46b', 'no-history', 60
   %}
 name: Get user settings
-description: ""
+description: >-
+  Gets user settings
+
+
+  <!-- RESPONSE -->
+
+  {
+  	"usersettings": [
+  		{
+  			"key": "autoPush",
+  			"value": "ON"
+  		},
+  		{
+  			"key": "defaultListUUID",
+  			"value": "15413bbc9b"
+  		},
+  		{
+  			"key": "suggestedSpecifications",
+  			"value": "ON"
+  		},
+  		{
+  			"key": "onboardClient",
+  			"value": "webApp"
+  		},
+  		{
+  			"key": "purchaseStyle",
+  			"value": "grouped"
+  		}
+  	],
+  	"userlistsettings": [
+  		{
+  			"listUuid": "15413babc9b",
+  			"usersettings": [
+  				{
+  					"key": "listSectionOrder",
+  					"value": "[\"Früchte & Gemüse\",\"Brot & Gebäck\",\"Milch & Käse\",\"Fleisch & Fisch\",\"Zutaten & Gewürze\",\"Fertig- & Tiefkühlprodukte\",\"Getreideprodukte\",\"Snacks & Süsswaren\",\"Getränke & Tabak\",\"Haushalt & Gesundheit\",\"Pflege & Gesundheit\",\"Tierbedarf\",\"Baumarkt & Garten\",\"Eigene Artikel\"]"
+  				},
+  				{
+  					"key": "listArticleLanguage",
+  					"value": "en-US"
+  				}
+  			]
+  		}
+  	]
+  }
+
+  <!-- ENDRESPONSE -->
 method: GET
 body: {}
 parameters: []
