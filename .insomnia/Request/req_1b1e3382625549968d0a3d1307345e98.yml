@@ -1,0 +1,104 @@
+_id: req_1b1e3382625549968d0a3d1307345e98
+type: Request
+parentId: fld_456ad99e571d488e9f06fe293b5ff7df
+modified: 1683379828397
+created: 1683379498455
+url: https://api.getbring.com/rest/v2/bringusers/{% response 'body',
+  'req_64743cf7abf84517a43f7af565fce9a1', 'b64::JC51dWlk::46b', 'no-history', 60
+  %}/templates
+name: Templates
+description: >-
+  Retrieves your targeted inspirations
+
+
+  <!-- RESPONSE -->
+
+  {
+  	"templates": [
+  		{
+  			"uuid": "c239d1c205c-en-CH",
+  			"userUuid": "09b25",
+  			"contentUuid": "879aa3d2b11844c",
+  			"contentVersion": 0,
+  			"title": "Glasnudelsalat mit Frühlingsgemüse",
+  			"imageUrl": "http:\/\/www.limonrimon.ch\/wp-content\/uploads\/2021\/04\/veganglasnoodlesalad-6240-450x450.jpg",
+  			"importCount": 0,
+  			"linkOutUrl": "https:\/\/www.limonrimon.ch\/asiatischer-glasnudelsalat-vegan-glutenfrei\/",
+  			"type": "RECIPE",
+  			"attribution": "LimonRimon",
+  			"attributionSubtitle": "#Trending",
+  			"attributionIcon": "",
+  			"modificationDateUtc": "2023-05-01T00:00:00.000Z",
+  			"promotion": {
+  				"promotionUuid": "c2390205c-en-CH",
+  				"attribution": "LimonRimon",
+  				"activeFromDateUtc": "2023-05-01T00:00:00.000Z",
+  				"activeToDateUtc": "2023-05-12T00:00:00.000Z",
+  				"position": 0
+  			},
+  			"name": "Glasnudelsalat mit Frühlingsgemüse",
+  			"contentSrcUrl": "https:\/\/api.getbring.com\/rest\/bringtemplates\/content\/879aa3f7-03a2-4154-a374-f19d2b11844c"
+  		},
+  		{
+  			"uuid": "7fbe3d50d727-en-CH",
+  			"userUuid": "5331e9b25",
+  			"contentUuid": "a08b1a8c37ce7d13473",
+  			"contentVersion": 0,
+  			"title": "Quark-Streuselkuchen",
+  			"imageUrl": "https:\/\/www.vzug.com\/medias\/sys_master\/recipeimages\/recipeimages\/ha2\/h81\/9450086957086\/recipe-img-slide.jpg",
+  			"importCount": 0,
+  			"linkOutUrl": "https:\/\/www.vzug.com\/ch\/de\/recipe\/quark-streuselkuchen--rvzug.recipe.2019.Quark.Streuselkuchen",
+  			"type": "RECIPE",
+  			"attribution": "V-ZUG ",
+  			"attributionSubtitle": "Zum vernaschen lecker!",
+  			"attributionIcon": "",
+  			"modificationDateUtc": "2023-05-02T00:00:00.000Z",
+  			"promotion": {
+  				"promotionUuid": "7fbe3d50-a27-en-CH",
+  				"attribution": "V-ZUG ",
+  				"activeFromDateUtc": "2023-05-02T00:00:00.000Z",
+  				"activeToDateUtc": "2023-05-13T00:00:00.000Z",
+  				"position": 0
+  			},
+  			"name": "Quark-Streuselkuchen",
+  			"contentSrcUrl": "https:\/\/api.getbring.com\/rest\/bringtemplates\/content\/a08b1a8c-f7a0-46b7-9610-037ce7d13473"
+  		}
+  	]
+  }
+
+  <!-- ENDRESPONSE -->
+method: GET
+body: {}
+parameters: []
+headers:
+  - id: pair_de40dcc409b54527a3c42986c026e18c
+    name: x-bring-api-key
+    value: "{{ _.apiKey }}"
+    description: ""
+  - id: pair_954daeb73d5d44c2bcdcec3dcadc2b48
+    name: x-bring-client
+    value: "{{ _.client }}"
+    description: ""
+  - id: pair_00843e3779564cd9b3a5ac17d64c5451
+    name: x-bring-country
+    value: "{% response 'body', 'req_e3a8f2fa6abd4631b20d6532aa52bfba',
+      'b64::JC5jb3VudHJ5::46b', 'no-history', 60 %}"
+    description: ""
+  - id: pair_ad4b2134c1034200853641849dd47cad
+    name: x-bring-user-uuid
+    value: "{% response 'body', 'req_64743cf7abf84517a43f7af565fce9a1',
+      'b64::JC51dWlk::46b', 'no-history', 60 %}"
+    description: ""
+authentication:
+  type: bearer
+  token: "{% response 'body', 'req_64743cf7abf84517a43f7af565fce9a1',
+    'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
+  prefix: Bearer
+metaSortKey: -1682593600161.9062
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

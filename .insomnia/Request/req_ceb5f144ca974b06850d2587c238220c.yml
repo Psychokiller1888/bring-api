@@ -1,43 +1,32 @@
-_id: req_be6ca37034da480f96f17c914790fcc7
+_id: req_ceb5f144ca974b06850d2587c238220c
 type: Request
-parentId: fld_69305682a1794b59abb86bc43b1d168f
-modified: 1683379956837
-created: 1682594681268
-url: https://api.getbring.com/rest/v2/bringlists/{% response 'body',
-  'req_c681ecb773ee45b3afad203691a96944',
-  'b64::JC5saXN0c1s6MV0ubGlzdFV1aWQ=::46b', 'no-history', 60 %}
-name: Manage list
+parentId: fld_456ad99e571d488e9f06fe293b5ff7df
+modified: 1683380219019
+created: 1683380052430
+url: https://api.getbring.com/rest/v2/bringusers/{% response 'body',
+  'req_64743cf7abf84517a43f7af565fce9a1', 'b64::JC51dWlk::46b', 'no-history', 60
+  %}/lists
+name: Create user list
 description: |-
-  Add or remove items from your list
+  Create a new shopping list
 
   <!-- RESPONSE -->
-  Status code `204`
+  {
+  	"bringListUUID": "2e005c80-afe3-726ce3718334"
+  }
   <!-- ENDRESPONSE -->
-method: PUT
+method: POST
 body:
   mimeType: application/x-www-form-urlencoded
   params:
-    - id: pair_590f458334d1445b8bf6e537bb377189
-      name: uuid
-      value: "{% response 'body', 'req_c681ecb773ee45b3afad203691a96944',
-        'b64::JC5saXN0c1s6MV0ubGlzdFV1aWQ=::46b', 'no-history', 60 %}"
-      description: list id to add or remove to
-    - id: pair_d32a560329f1453a8c189fe58f673d67
-      name: purchase
-      value: ""
-      description: item to purchase
-    - id: pair_84d2fc47d1854019b4b380c47b4327fe
-      name: remove
-      value: tomcats
-      description: item to remove
-    - id: pair_fac4e0ce81fe4addbfc8eaa8b35efc38
-      name: recently
-      value: ""
-      description: item to add to recent items
-    - id: pair_c8525ddf0acd4611a3ddcf93974838c1
-      name: specification
-      value: "10"
-      description: amount to purchase or remove
+    - id: pair_5950469804b942c3af2705bd610d75d7
+      name: name
+      value: test 2
+      description: ""
+    - id: pair_52447b0ec82c40c0a7a3ecda15cecc17
+      name: theme
+      value: ch.publisheria.bring.theme.home
+      description: ""
 parameters: []
 headers:
   - id: pair_de40dcc409b54527a3c42986c026e18c
@@ -65,7 +54,7 @@ authentication:
   token: "{% response 'body', 'req_64743cf7abf84517a43f7af565fce9a1',
     'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
   prefix: Bearer
-metaSortKey: -1682593480950.5
+metaSortKey: -1682593592957.1562
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
