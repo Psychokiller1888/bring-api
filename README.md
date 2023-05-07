@@ -17,10 +17,13 @@ Import the repository in your Insomnia app: https://github.com/Psychokiller1888/
 - Create a Bring instance by passing your login and password to use the API:
 
 ```python
+from BringPythonApi.Bring import Bring
+
 try:
-    from BringPythonApi.Bring import Bring
     bring = Bring(email='foo@bar.com', password='foobar')
-    
+except:
+    raise
+else:
     # Add an item to your default list
     bring.purchase(item='Milk', detail='3 liters')
     
@@ -29,6 +32,4 @@ try:
     
     # Empty your list called "My work list". If no name provided, defaults to you default list
     bring.emptyPurchaseList(listUuid=bring.user.getList(name='My work list'))
-except:
-    raise
 ```
