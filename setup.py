@@ -12,7 +12,7 @@ setup(
 	include_package_data=True,
 	url='https://github.com/Psychokiller1888/bring-api',
 	license='GPL-3.0',
-	author='ProjectAlice',
+	author='Psychokiller1888',
 	maintainer='Psychokiller1888',
 	author_email='laurentchervet@bluewin.ch',
 	description='Bring! web api for Python',
@@ -21,8 +21,8 @@ setup(
 	],
 	classifiers=[
 		"Development Status :: 5 - Production/Stable",
-		"Environment :: Console",
-		"Intended Audience :: End Users/Desktop",
+		"Environment :: Web Environment",
+		"Intended Audience :: Developers",
 		"License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
 		"Operating System :: OS Independent",
 		"Programming Language :: Python :: 3.8"

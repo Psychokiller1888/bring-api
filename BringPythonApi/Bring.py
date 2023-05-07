@@ -320,7 +320,7 @@ class Bring(object):
 			headers=self._headers
 		)
 
-	def addToRecentItems(self, item: str, detail: Union[str, int], listUuid: Optional[str]) -> Response:
+	def addToRecentItems(self, item: str, detail: Union[str, int], listUuid: Optional[str] = '') -> Response:
 		"""
 		Adds an item to the recent items list
 
