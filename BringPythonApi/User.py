@@ -12,7 +12,7 @@ class User(object):
 	name: str
 	photoPath: str
 	uuid: Optional[str] = ''
-	bringListUUID: Optional[str] = '' # This is returned by auth, seems to be the default list uuid
+	bringListUUID: Optional[str] = ''  # This is returned by auth, seems to be the default list uuid
 	pushEnabled: Optional[bool] = False
 	plusTryOut: Optional[bool] = False
 	access_token: Optional[str] = ''

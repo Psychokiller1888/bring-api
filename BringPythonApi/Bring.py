@@ -97,7 +97,6 @@ class Bring(object):
 		except:
 			raise
 
-
 	def getUserLists(self) -> bool:
 		try:
 			req = requests.get(
@@ -170,7 +169,6 @@ class Bring(object):
 				bringList.setItems(req.json())
 		except:
 			raise
-
 
 	def changeUserListLanguage(self, languageCode: str, listUuid: Optional[str] = '') -> bool:
 		try:
@@ -353,7 +351,7 @@ class Bring(object):
 		headers = self._headers.copy()
 
 		payload = {
-			'itemId': itemId,
+			'itemId':   itemId,
 			'listUuid': listUuid
 		}
 
@@ -368,14 +366,12 @@ class Bring(object):
 		# 	payload += f'{value}\n'
 		# 	payload += f'{self.BOUNDARY}\n'
 
-
 		return requests.request(
 			method='POST',
 			url=f'{self.API_URL}/bringlistitemdetails',
 			data=payload,
 			headers=headers
 		)
-
 
 	def sendMagicLink(self, email: Optional[str] = '') -> Response:
 		if not email and not self._user:

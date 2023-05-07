@@ -2,7 +2,6 @@ from pathlib import Path
 
 from setuptools import find_packages, setup
 
-
 setup(
 	name='bring-python-api',
 	version='1.0.0',
@@ -19,7 +18,7 @@ setup(
 	description='Bring! web api for Python',
 	install_requires=[
 		'requests~=2.26.0'
-    ],
+	],
 	classifiers=[
 		"Development Status :: 5 - Production/Stable",
 		"Environment :: Console",

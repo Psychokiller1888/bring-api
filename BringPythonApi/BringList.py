@@ -11,7 +11,6 @@ class BringList(object):
 	theme: Optional[str] = ''
 	items: Optional[list] = field(default_factory=list)
 
-
 	def setItems(self, data: list):
 		for itemData in data:
 			self.items.append(Item(**itemData))
