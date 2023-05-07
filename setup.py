@@ -12,7 +12,7 @@ setup(
 	include_package_data=True,
 	url='https://github.com/Psychokiller1888/bring-api',
 	license='GPL-3.0',
-	author='Project Alice',
+	author='ProjectAlice',
 	maintainer='Psychokiller1888',
 	author_email='laurentchervet@bluewin.ch',
 	description='Bring! web api for Python',
