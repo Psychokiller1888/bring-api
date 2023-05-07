@@ -410,11 +410,3 @@ class Bring(object):
 		self._translations[locale].setdefault('items', dict())
 
 		return req.json()
-
-
-if __name__ == '__main__':
-	try:
-		bring = Bring(email='', password='')
-	except Exception as e:
-		print(f'Failed login: {e}')
-

@@ -18,7 +18,7 @@ setup(
 	author_email='laurentchervet@bluewin.ch',
 	description='Bring! web api for Python',
 	install_requires=[
-		'requests~=2.26.0',
+		'requests~=2.26.0'
     ],
 	classifiers=[
 		"Development Status :: 5 - Production/Stable",
@@ -26,6 +26,6 @@ setup(
 		"Intended Audience :: End Users/Desktop",
 		"License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
 		"Operating System :: OS Independent",
-		"Programming Language :: Python :: 3.8",
+		"Programming Language :: Python :: 3.8"
 	]
 )
