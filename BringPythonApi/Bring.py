@@ -427,6 +427,29 @@ class Bring(object):
 			}
 		)
 
+	def createNewList(self, listName: str, theme: Optional[str] = 'ch.publisheria.bring.theme.home') -> Response:
+		"""
+		Creates a new list on your account
+
+		:param listName: The name of the new list
+		:param theme: Used by the web app as a background
+		:returns Requests.Response
+		"""
+
+		response = requests.post(
+			url=f'{self.API_URL}/bringusers/{self.user.uuid}/lists',
+			headers=self._headers,
+			data={
+				'name': listName,
+				'theme': theme
+			}
+		)
+
+		if response.status_code == 200:
+			self.user.setLists(data=[{'listUuid': response.json()['bringListUUID'], 'name': listName, 'theme': theme}])
+
+		return response
+
 	def getItemDetails(self, itemId: str, listUuid: Optional[str] = '') -> Response:
 		if not listUuid:
 			listUuid = self._user.defaultListUUID

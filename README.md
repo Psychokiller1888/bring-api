@@ -53,4 +53,24 @@ else:
     
     # Move cucumber to another category
     bring.changeItemCategory(newCategory='Eigene Artikel')
+
+    # Create a new "Bauhaus" list
+    bring.createNewList(listName='Bauhaus')
+
+    # Add power drill to Bauhaus shopping list
+    bring.purchase(
+        item='Power drill',
+        detail='With bits',
+        listUuid=bring.user.getList(name='Bauhaus')
+    )
+
+    # Create a new "Aldi" list
+    bring.createNewList(listName='Aldi')
+    
+    # Add rice to Aldi's list
+    bring.purchase(
+        item='Rice (1kg)',
+        detail=2,
+        listUuid=bring.user.getList(name='Aldi')
+    )
 ```
