@@ -5,7 +5,6 @@ from requests import Response
 from urllib3 import encode_multipart_formdata
 
 from BringPythonApi.Exceptions import InvalidUser, InvalidEmail, RequestFailed, InvalidCredentials
-from BringPythonApi.Item import Item
 from BringPythonApi.User import User
 
 
@@ -19,7 +18,6 @@ class Bring(object):
 		self._email = email
 		self._password = password
 		self._user: Optional[User] = None
-		self._userItems: List = list()
 		self._headers = {
 			'content-type':    'application/x-www-form-urlencoded; charset=UTF-8',
 			'x-bring-api-key': self.API_KEY,
@@ -31,9 +29,10 @@ class Bring(object):
 			self.getUserProfile()
 			self.getUserData()
 			self.getUserSettings()
+			self.getUserLists()
+			self.loadUserListsDetails()
 			self.loadCatalog()
 			self.loadArticles()
-			self.loadUserItemDetails()
 		except:
 			raise
 
@@ -98,6 +97,20 @@ class Bring(object):
 		except:
 			raise
 
+
+	def getUserLists(self) -> bool:
+		try:
+			req = requests.get(
+				url=f'{self.API_URL}/bringusers/{self._user.uuid}/lists',
+				headers=self._headers
+			)
+			if req.status_code != 200:
+				raise RequestFailed('Failed getting user lists')
+			self._user.setLists(req.json()['lists'])
+			return True
+		except:
+			raise
+
 	def getUserData(self) -> bool:
 		try:
 			req = requests.get(
@@ -112,10 +125,13 @@ class Bring(object):
 		except:
 			raise
 
-	def getListUsers(self) -> List:
+	def getListUsers(self, listUuid: Optional[str] = '') -> List:
 		try:
+			if not listUuid:
+				listUuid = self._user.defaultListUUID
+
 			req = requests.get(
-				url=f'{self.API_URL}/bringlists/{self._user.bringListUUID}/users',
+				url=f'{self.API_URL}/bringlists/{listUuid}/users',
 				headers=self._headers
 			)
 			if req.status_code != 200:
@@ -141,37 +157,28 @@ class Bring(object):
 		except:
 			raise
 
-	def loadUserItemDetails(self):
+	def loadUserListsDetails(self):
 		try:
-			req = requests.get(
-				url=f'{self.API_URL}/bringlists/{self._user.bringListUUID}/details',
-				headers=self._headers
-			)
-			if req.status_code != 200:
-				raise RequestFailed('Failed getting user item details')
+			for listUuid, bringList in self._user.listsByUuid.items():
+				req = requests.get(
+					url=f'{self.API_URL}/bringlists/{listUuid}/details',
+					headers=self._headers
+				)
+				if req.status_code != 200:
+					raise RequestFailed(f'Failed getting user list details for list {listUuid}')
 
-			data = req.json()
-			for itemData in data:
-				self._userItems.append(Item(**itemData))
+				bringList.setItems(req.json())
 		except:
 			raise
 
-	@property
-	def userItems(self) -> List[Item]:
-		return self._userItems
 
-	@property
-	def userItemsById(self) -> Dict[str, Item]:
-		return {item.itemId: item for item in self._userItems}
-
-	@property
-	def userItemsByUuid(self) -> Dict[str, Item]:
-		return {item.uuid: item for item in self._userItems}
-
-	def changeUserListLanguage(self, languageCode: str) -> bool:
+	def changeUserListLanguage(self, languageCode: str, listUuid: Optional[str] = '') -> bool:
 		try:
+			if not listUuid:
+				listUuid = self._user.defaultListUUID
+
 			req = requests.post(
-				url=f'{self.API_URL}/bringusersettings/{self._user.uuid}/{self._user.bringListUUID}/listArticleLanguage',
+				url=f'{self.API_URL}/bringusersettings/{self._user.uuid}/{listUuid}/listArticleLanguage',
 				headers=self._headers,
 				data={
 					'value': languageCode
@@ -203,9 +210,12 @@ class Bring(object):
 		except:
 			raise
 
-	def purchase(self, item: str, detail: Union[str, int]) -> Response:
+	def purchase(self, item: str, detail: Union[str, int], listUuid: Optional[str] = '') -> Response:
+		if not listUuid:
+			listUuid = self._user.defaultListUUID
+
 		return requests.put(
-			url=f'{self.API_URL}/bringlists/{self._user.bringListUUID}',
+			url=f'{self.API_URL}/bringlists/{listUuid}',
 			headers=self._headers,
 			data={
 				'uuid':          self._user.bringListUUID,
@@ -214,9 +224,12 @@ class Bring(object):
 			}
 		)
 
-	def remove(self, item: str, detail: Union[str, int]) -> Response:
+	def remove(self, item: str, detail: Union[str, int], listUuid: Optional[str] = '') -> Response:
+		if not listUuid:
+			listUuid = self._user.defaultListUUID
+
 		return requests.put(
-			url=f'{self.API_URL}/bringlists/{self._user.bringListUUID}',
+			url=f'{self.API_URL}/bringlists/{listUuid}',
 			headers=self._headers,
 			data={
 				'uuid':          self._user.bringListUUID,
@@ -225,9 +238,12 @@ class Bring(object):
 			}
 		)
 
-	def getItemStatistic(self, itemName: str) -> Response:
+	def getItemStatistic(self, itemName: str, listUuid: Optional[str] = '') -> Response:
+		if not listUuid:
+			listUuid = self._user.defaultListUUID
+
 		return requests.get(
-			url=f'{self.API_URL}/bringstatistics/history/list/{self._user.bringListUUID}/{itemName}',
+			url=f'{self.API_URL}/bringstatistics/history/list/{listUuid}/{itemName}',
 			headers=self._headers
 		)
 
@@ -237,9 +253,12 @@ class Bring(object):
 			headers=self._headers
 		)
 
-	def addToRecentItems(self, item: str, detail: Union[str, int]) -> Response:
+	def addToRecentItems(self, item: str, detail: Union[str, int], listUuid: Optional[str]) -> Response:
+		if not listUuid:
+			listUuid = self._user.defaultListUUID
+
 		return requests.put(
-			url=f'{self.API_URL}/bringlists/{self._user.bringListUUID}',
+			url=f'{self.API_URL}/bringlists/{listUuid}',
 			headers=self._headers,
 			data={
 				'uuid':          self._user.bringListUUID,
@@ -248,15 +267,21 @@ class Bring(object):
 			}
 		)
 
-	def emptyPurchaseList(self):
+	def emptyPurchaseList(self, listUuid: Optional[str] = ''):
+		if not listUuid:
+			listUuid = self._user.defaultListUUID
+
 		try:
-			items = self.getShoppingList()
+			items = self.getShoppingList(listUuid=listUuid)
 			for item in items['purchase']:
-				self.remove(item=item['name'], detail=item['specification'])
+				self.remove(item=item['name'], detail=item['specification'], listUuid=listUuid)
 		except:
 			raise
 
-	def getShoppingList(self, translate: bool = False, translatedTo: str = None) -> Dict:
+	def getShoppingList(self, listUuid: Optional[str] = '', translate: bool = False, translatedTo: str = None) -> Dict:
+		if not listUuid:
+			listUuid = self._user.defaultListUUID
+
 		if translatedTo:
 			translate = True
 
@@ -270,7 +295,7 @@ class Bring(object):
 			self.loadArticles(locale=translatedTo)
 
 		req = requests.get(
-			url=f'{self.API_URL}/bringlists/{self._user.bringListUUID}',
+			url=f'{self.API_URL}/bringlists/{listUuid}',
 			headers=self._headers
 		)
 
@@ -309,38 +334,27 @@ class Bring(object):
 		for itemId, name in data.items():
 			self._translations[locale]['items'][itemId] = name
 
-
-	def changeItemCategory(self, newCategory: str, itemId: Optional[str] = '', itemUuid: Optional[str] = '') -> Response:
-		if not itemId and not itemUuid:
-			raise RequestFailed('Must specify either itemId or itemUuid')
-
+	def changeItemCategory(self, newCategory: str, itemUuid: str) -> Response:
 		if newCategory not in self._user.listSectionOrder:
 			raise RequestFailed(f'The specified category does not exist: Existing categories are {self._user.listSectionOrder}')
 
-		if itemId:
-			item = self.userItemsById.get(itemId, None)
-			if not item:
-				raise RequestFailed(f'Cannot find itemId "{itemId}"')
-			uuid = item.uuid
-		else:
-			if not itemUuid in self.userItemsByUuid.keys():
-				raise RequestFailed(f'Cannot find itemUuid "{itemUuid}"')
-			uuid = itemUuid
-
 		return requests.put(
-			url=f'{self.API_URL}/bringlistitemdetails/{uuid}/usersection',
+			url=f'{self.API_URL}/bringlistitemdetails/{itemUuid}/usersection',
 			headers=self._headers,
 			data={
 				'userSectionId': newCategory
 			}
 		)
 
-	def getItemDetails(self, itemId: str) -> Response:
+	def getItemDetails(self, itemId: str, listUuid: Optional[str] = '') -> Response:
+		if not listUuid:
+			listUuid = self._user.defaultListUUID
+
 		headers = self._headers.copy()
 
 		payload = {
 			'itemId': itemId,
-			'listUuid': self.user.bringListUUID
+			'listUuid': listUuid
 		}
 
 		payload, contentType = encode_multipart_formdata(payload, boundary=self.BOUNDARY)
@@ -403,5 +417,4 @@ if __name__ == '__main__':
 		bring = Bring(email='', password='')
 	except Exception as e:
 		print(f'Failed login: {e}')
-
 
