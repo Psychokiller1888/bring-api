@@ -170,7 +170,42 @@ class Bring(object):
 		except:
 			raise
 
+	def loadCatalog(self, locale: str = None):
+		locale = locale or self._user.listArticleLanguage
+		data = self._getWebData(url='catalog', locale=locale)
+		for section in data['catalog']['sections']:
+			self._translations[locale]['sections'][section['sectionId']] = section['name']
+			for item in section['items']:
+				self._translations[locale]['items'][item['itemId']] = item['name']
+
+	def loadArticles(self, locale: str = None):
+		locale = locale or self._user.listArticleLanguage
+		data = self._getWebData(url='articles', locale=locale)
+		for itemId, name in data.items():
+			self._translations[locale]['items'][itemId] = name
+
+	def _getWebData(self, url: str, locale: str) -> Dict:
+		req = requests.get(
+			url=f'https://web.getbring.com/locale/{url}.{locale}.json',
+			headers=self._headers
+		)
+		if req.status_code != 200:
+			raise RequestFailed(f'Failed getting "{url}" web data')
+
+		self._translations.setdefault(locale, dict())
+		self._translations[locale].setdefault('sections', dict())
+		self._translations[locale].setdefault('items', dict())
+
+		return req.json()
+
 	def changeUserListLanguage(self, languageCode: str, listUuid: Optional[str] = '') -> bool:
+		"""
+		Changes a list's language
+
+		:param languageCode: The standard country-language code
+		:param listUuid: The list to change the language
+		:returns Requests.Response
+		"""
 		try:
 			if not listUuid:
 				listUuid = self._user.defaultListUUID
@@ -191,8 +226,14 @@ class Bring(object):
 			raise
 
 	def changeUserPassword(self, newPassword: str) -> bool:
+		"""
+		Changes the account password
+
+		:param newPassword: The new password
+		:returns Requests.Response
+		"""
 		if not newPassword:
-			raise RequestFailed('Cannot change password to empty string')
+			raise RequestFailed('Cannot change password to empty')
 		try:
 			req = requests.post(
 				url=f'{self.API_URL}/bringusers/{self._user.uuid}/password',
@@ -209,6 +250,14 @@ class Bring(object):
 			raise
 
 	def purchase(self, item: str, detail: Union[str, int], listUuid: Optional[str] = '') -> Response:
+		"""
+		Puts an item in your purchase list
+
+		:param item: The item name you wish to buy
+		:param detail: The amount or any detail to write with the item
+		:param listUuid: The list to add to
+		:returns Requests.Response
+		"""
 		if not listUuid:
 			listUuid = self._user.defaultListUUID
 
@@ -222,7 +271,15 @@ class Bring(object):
 			}
 		)
 
-	def remove(self, item: str, detail: Union[str, int], listUuid: Optional[str] = '') -> Response:
+	def remove(self, item: str, detail: Optional[Union[str, int]] = 9999999, listUuid: Optional[str] = '') -> Response:
+		"""
+		Remove an item from a list. If no list provided, removes from your default list
+
+		:param item: The item name you wish to remove
+		:param detail: The amount you want to remove
+		:param listUuid: The list to remove from
+		:returns Requests.Response
+		"""
 		if not listUuid:
 			listUuid = self._user.defaultListUUID
 
@@ -237,6 +294,13 @@ class Bring(object):
 		)
 
 	def getItemStatistic(self, itemName: str, listUuid: Optional[str] = '') -> Response:
+		"""
+		Returns the specified item's statistics
+
+		:param itemName: The item name
+		:param listUuid: The list to take the item from
+		:returns Requests.Response
+		"""
 		if not listUuid:
 			listUuid = self._user.defaultListUUID
 
@@ -246,12 +310,25 @@ class Bring(object):
 		)
 
 	def getUserProfilePicture(self) -> Response:
+		"""
+		Returns the user profile picture
+
+		:returns Requests.Response
+		"""
 		return requests.get(
 			url=f'{self.API_URL}/bringusers/profilepictures/{self._user.publicUuid}',
 			headers=self._headers
 		)
 
 	def addToRecentItems(self, item: str, detail: Union[str, int], listUuid: Optional[str]) -> Response:
+		"""
+		Adds an item to the recent items list
+
+		:param item: The item name you wish to add
+		:param detail: The amount or any detail you want to add
+		:param listUuid: The list to add to
+		:returns Requests.Response
+		"""
 		if not listUuid:
 			listUuid = self._user.defaultListUUID
 
@@ -266,6 +343,11 @@ class Bring(object):
 		)
 
 	def emptyPurchaseList(self, listUuid: Optional[str] = ''):
+		"""
+		Empties a shopping list
+		:param listUuid: The list to empty
+		:returns Requests.Response
+		"""
 		if not listUuid:
 			listUuid = self._user.defaultListUUID
 
@@ -277,6 +359,14 @@ class Bring(object):
 			raise
 
 	def getShoppingList(self, listUuid: Optional[str] = '', translate: bool = False, translatedTo: str = None) -> Dict:
+		"""
+		Returns a shopping list, translated if required
+
+		:param listUuid: The list to remove from
+		:param translate: Whether to translate the items or not
+		:param translatedTo: The standard country-language code to translate to, example "fr-CH"
+		:returns Dictionary of items, in two categories "purchased" and "recently"
+		"""
 		if not listUuid:
 			listUuid = self._user.defaultListUUID
 
@@ -318,21 +408,14 @@ class Bring(object):
 
 		return ret
 
-	def loadCatalog(self, locale: str = None):
-		locale = locale or self._user.listArticleLanguage
-		data = self._getWebData(url='catalog', locale=locale)
-		for section in data['catalog']['sections']:
-			self._translations[locale]['sections'][section['sectionId']] = section['name']
-			for item in section['items']:
-				self._translations[locale]['items'][item['itemId']] = item['name']
-
-	def loadArticles(self, locale: str = None):
-		locale = locale or self._user.listArticleLanguage
-		data = self._getWebData(url='articles', locale=locale)
-		for itemId, name in data.items():
-			self._translations[locale]['items'][itemId] = name
-
 	def changeItemCategory(self, newCategory: str, itemUuid: str) -> Response:
+		"""
+		Changes the specified item's category
+
+		:param newCategory: The __existing__ category name to move the item to
+		:param itemUuid: The item uuid to move
+		:returns Requests.Response
+		"""
 		if newCategory not in self._user.listSectionOrder:
 			raise RequestFailed(f'The specified category does not exist: Existing categories are {self._user.listSectionOrder}')
 
@@ -374,6 +457,12 @@ class Bring(object):
 		)
 
 	def sendMagicLink(self, email: Optional[str] = '') -> Response:
+		"""
+		If logging via a browser, you may login with a magic link instead of a password
+
+		:param email: The email address of the account
+		:returns Requests.Response
+		"""
 		if not email and not self._user:
 			raise RequestFailed('Cannot request magic link without user or email')
 
@@ -392,17 +481,3 @@ class Bring(object):
 				'email': email
 			}
 		)
-
-	def _getWebData(self, url: str, locale: str) -> Dict:
-		req = requests.get(
-			url=f'https://web.getbring.com/locale/{url}.{locale}.json',
-			headers=self._headers
-		)
-		if req.status_code != 200:
-			raise RequestFailed(f'Failed getting "{url}" web data')
-
-		self._translations.setdefault(locale, dict())
-		self._translations[locale].setdefault('sections', dict())
-		self._translations[locale].setdefault('items', dict())
-
-		return req.json()
