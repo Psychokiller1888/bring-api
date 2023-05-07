@@ -16,7 +16,7 @@ setup(
 	author='ProjectAlice',
 	maintainer='Psychokiller1888',
 	author_email='laurentchervet@bluewin.ch',
-	description='Project Alice CLI tool',
+	description='Bring! web api for Python',
 	install_requires=[
 		'requests~=2.26.0',
     ],
