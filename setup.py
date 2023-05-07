@@ -4,7 +4,7 @@ from setuptools import find_packages, setup
 
 setup(
 	name='bring-python-api',
-	version='1.0.0',
+	version='1.0.1',
 	long_description=Path('README.md').read_text(encoding='utf8'),
 	long_description_content_type='text/markdown',
 	python_requires='>=3.8',
@@ -12,7 +12,7 @@ setup(
 	include_package_data=True,
 	url='https://github.com/Psychokiller1888/bring-api',
 	license='GPL-3.0',
-	author='ProjectAlice',
+	author='Psychokiller1888',
 	maintainer='Psychokiller1888',
 	author_email='laurentchervet@bluewin.ch',
 	description='Bring! web api for Python',
